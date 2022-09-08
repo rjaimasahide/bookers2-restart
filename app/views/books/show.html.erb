@@ -25,6 +25,15 @@
           <% end %>
         </tr>
       </table>
+      <div id="comment-<%= @book.id %>">
+        <%= render 'comment', book: @book %>
+      </div>
+      <div id="comment-<%= @book.id %>">
+        <%= form_with model:[@book,@comment], method: :post, local: false do |f| %>
+          <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+          <%= f.submit"送信する" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
